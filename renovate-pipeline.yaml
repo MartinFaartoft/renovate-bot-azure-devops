@@ -18,7 +18,7 @@ jobs:
         inputs:
           command: 'install'
       - task: Bash@3
-      displayName: renovate.sh
+        displayName: renovate.sh
         inputs:
           filePath: 'renovate.sh'
           arguments: '$(System.AccessToken)'
