@@ -17,9 +17,7 @@ jobs:
         displayName: NPM Install
         inputs:
           command: 'install'
-      - task: Shellpp@0
-        displayName: Run renovate.sh
+      - task: Bash@3
         inputs:
-          type: 'FilePath'
-          scriptPath: 'renovate.sh'
-          args: '$(System.AccessToken)'
+          filePath: 'renovate.sh'
+          arguments: '$(System.AccessToken)'
