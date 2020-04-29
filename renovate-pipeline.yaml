@@ -11,13 +11,14 @@ schedules:
 
 jobs:
   - job: renovate
-    displayName: Run Renovate
+    displayName: Renovate
     steps:
       - task: Npm@1
         displayName: NPM Install
         inputs:
           command: 'install'
       - task: Bash@3
+      displayName: renovate.sh
         inputs:
           filePath: 'renovate.sh'
           arguments: '$(System.AccessToken)'
