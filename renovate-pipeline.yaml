@@ -1,0 +1,25 @@
+pool:
+    vmImage: 'ubuntu-latest'
+
+schedules:
+- cron: "0 9,12,15 * * 1-5"
+  displayName: At 9:00, 12:00 and 15:00 Monday-Friday
+  branches:
+    include: 
+      - master
+  always: "true"
+
+jobs:
+  - job: renovate
+    displayName: Run Renovate
+    steps:
+      - task: Npm@1
+        displayName: NPM Install
+        inputs:
+          command: 'install'
+      - task: Shellpp@0
+        displayName: Run renovate.sh
+        inputs:
+          type: 'FilePath'
+          scriptPath: 'renovate.sh'
+          args: '$(System.AccessToken)'
