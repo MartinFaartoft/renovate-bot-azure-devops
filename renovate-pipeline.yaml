@@ -12,10 +12,19 @@ jobs:
   - job: renovate
     displayName: Renovate
     steps:
+      - task: Cache@2
+        displayName: Cache npm
+        inputs:
+          key: 'npm | "$(Agent.OS)" | package.json'
+          path: ./node_modules
+          cacheHitVar: CACHE_RESTORED
+
       - task: Npm@1
-        displayName: NPM Install
+        displayName: Npm install
+        condition: ne(variables.CACHE_RESTORED, 'true')
         inputs:
           command: 'install'
+
       - task: Bash@3
         inputs:
           targetType: 'inline'
