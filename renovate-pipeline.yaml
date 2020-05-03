@@ -16,7 +16,10 @@ jobs:
         displayName: NPM Install
         inputs:
           command: 'install'
-      - bash:
+      - task: Bash@3
+        inputs:
+        targetType: 'inline'
+        script:
         - |
           export RENOVATE_CONFIG_FILE="./renovate-config.js"
           export RENOVATE_TOKEN="$(System.AccessToken)"
