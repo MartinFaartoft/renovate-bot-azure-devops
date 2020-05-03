@@ -32,4 +32,5 @@ jobs:
           script: |
             export RENOVATE_CONFIG_FILE="./renovate-config.js"
             export RENOVATE_TOKEN="$(System.AccessToken)"
-            node ./node_modules/renovate/dist/renovate --endpoint $(System.CollectionUri) --autodiscover
+            export RENOVATE_ENDPOINT="$(System.CollectionUri)"
+            node ./node_modules/renovate/dist/renovate --autodiscover
