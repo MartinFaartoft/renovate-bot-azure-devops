@@ -16,8 +16,8 @@ jobs:
         displayName: NPM Install
         inputs:
           command: 'install'
-      - task: Bash@3
-        displayName: renovate.sh
-        inputs:
-          filePath: 'renovate.sh'
-          arguments: '$(System.AccessToken)'
+      - bash:
+        - |
+          export RENOVATE_CONFIG_FILE="./renovate-config.js"
+          export RENOVATE_TOKEN="$(System.AccessToken)"
+          renovate --autodiscover
