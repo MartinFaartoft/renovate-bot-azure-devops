@@ -2,8 +2,7 @@ pool:
     vmImage: 'ubuntu-latest'
 
 schedules:
-- cron: "0 9,12,15 * * 1-5"
-  displayName: At 9:00, 12:00 and 15:00 Monday-Friday
+- cron: "0 * * * *"
   branches:
     include: 
       - master
