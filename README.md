@@ -4,7 +4,7 @@ Resources for self-hosting Renovate Bot in Azure DevOps
 ## Permissions
 Renovate needs to be granted access to create Pull Requests in the project. 
 
-Go to https://dev.azure.com/{organizationName}/{projectName}/_settings/repositories?repoGroup=true&_a=security and grant the `Contribute` and `Contribute to pull requests` permissions to the user `"Project Collection Build Service ({organizationName})"`. Use the search field to locate it.
+Go to https://dev.azure.com/{organizationName}/{projectName}/_settings/repositories?repoGroup=true&_a=security and grant the `Contribute`, `Contribute to pull requests` and `Create branch` permissions to the user `"Project Collection Build Service ({organizationName})"`. Use the search field to locate it.
 
 ## Create pipeline
 The `renovate-pipeline.yaml` file in this folder will work out of the box, using a default configuration.
