@@ -2,6 +2,6 @@
     "name": "renovate-bot-azure-devops",
     "version": "1.0.0",
     "dependencies": {
-        "renovate": "23.25.1"
+        "renovate": "34.95.2"
     }
 }
